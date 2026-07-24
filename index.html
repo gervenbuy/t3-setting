@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T1/T3 頂配版 儀表後台參數設定手冊</title>
+<style>
+  :root{
+    --navy:#0a1628;
+    --navy2:#132038;
+    --gold:#c9a24b;
+    --gold-light:#e8cd8a;
+    --text:#e8e8ec;
+    --muted:#9aa5b8;
+    --card:#101f38;
+    --border:#24354f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+    background:linear-gradient(180deg,var(--navy) 0%, #0d1b30 100%);
+    color:var(--text);
+    line-height:1.7;
+    padding:0 0 60px;
+  }
+  header{
+    padding:40px 20px 28px;
+    text-align:center;
+    border-bottom:1px solid var(--border);
+    background:radial-gradient(circle at top, rgba(201,162,75,0.08), transparent 60%);
+  }
+  header h1{
+    margin:0 0 8px;
+    font-size:1.6rem;
+    color:var(--gold-light);
+    letter-spacing:1px;
+  }
+  header p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.9rem;
+  }
+  .container{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 18px;
+  }
+  .section{
+    margin-top:36px;
+  }
+  .section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:1.15rem;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:14px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--gold);
+  }
+  .badge{
+    background:var(--gold);
+    color:var(--navy);
+    font-size:0.75rem;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:20px;
+    flex-shrink:0;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .card h3{
+    margin:0 0 8px;
+    font-size:1rem;
+    color:var(--gold-light);
+  }
+  .card p, .card ol, .card ul{
+    margin:0;
+    color:var(--text);
+    font-size:0.94rem;
+  }
+  .card ol, .card ul{
+    padding-left:1.2em;
+  }
+  .card li{
+    margin-bottom:6px;
+  }
+  .card li:last-child{margin-bottom:0;}
+  .note{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:var(--muted);
+    background:rgba(201,162,75,0.08);
+    border-left:3px solid var(--gold);
+    padding:8px 12px;
+    border-radius:4px;
+  }
+  .warn{
+    margin-top:10px;
+    font-size:0.85rem;
+    color:#f2c9a0;
+    background:rgba(230,120,60,0.1);
+    border-left:3px solid #d98a4a;
+    padding:8px 12px;
+    border-radius:4px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.92rem;
+  }
+  th, td{
+    padding:10px 12px;
+    text-align:left;
+    border-bottom:1px solid var(--border);
+  }
+  th{
+    color:var(--gold-light);
+    font-weight:700;
+    background:rgba(201,162,75,0.06);
+  }
+  td.code{
+    font-family:"SFMono-Regular",Consolas,monospace;
+    color:var(--gold-light);
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .steps{
+    counter-reset: step;
+    list-style:none;
+    padding-left:0;
+  }
+  .steps li{
+    position:relative;
+    padding-left:34px;
+    margin-bottom:12px;
+  }
+  .steps li::before{
+    counter-increment: step;
+    content: counter(step);
+    position:absolute;
+    left:0;
+    top:0;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    font-weight:700;
+    font-size:0.8rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .pill-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:10px;
+  }
+  .pill{
+    background:var(--navy2);
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:0.82rem;
+    font-family:monospace;
+  }
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.8rem;
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>T1 / T3 頂配版　儀表後台參數設定手冊</h1>
+  <p>整理自 JIAHOO 客服對話紀錄</p>
+</header>
+
+<div class="container">
+
+  <div class="section">
+    <div class="section-title"><span class="badge">01</span> 開機方式</div>
+
+    <div class="card">
+      <h3>方法一：密碼開機</h3>
+      <ol class="steps">
+        <li>按電源鍵，儀表亮屏</li>
+        <li>按「+」或「-」修改密碼數字</li>
+        <li>按「i」鍵確認密碼（開機密碼為 <strong>6666</strong>，即 4 個 6）</li>
+        <li>短按中間的電源鍵，即可開機</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>方法二：NFC 卡開機</h3>
+      <p>按電源鍵，儀表亮屏，出現輸入密碼介面時，將 NFC 卡貼在螢幕上即可開機。</p>
+    </div>
+
+    <div class="card">
+      <h3>方法三：手機 NFC 開機</h3>
+      <p>使用具備 NFC 功能的手機，依照該款手機「新增 NFC 門禁卡」的操作步驟，綁定 NFC 卡後即可開機。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="badge">02</span> 限速模式切換（符合台灣法規）</div>
+
+    <div class="card">
+      <h3>背景說明</h3>
+      <p>T1、T3 頂配版爬坡王最大時速可達 50 多公里。若路遇警察查車，可在 2 秒內切換成「純助力模式」，最大時速降為 25 公里，且轉把（油門）加速功能失效，僅能使用腳踏電助力，符合台灣法規。</p>
+    </div>
+
+    <div class="card">
+      <h3>切換成「純助力模式」（最大 25km/h，轉把失效）</h3>
+      <p>開機狀態下，<strong>同時按住「電源鍵」+「-」號鍵</strong>，即可切換成純助力模式（轉把加速功能失效）。</p>
+    </div>
+
+    <div class="card">
+      <h3>切換回「電動＋助力模式」（恢復轉把油門）</h3>
+      <ol class="steps">
+        <li>開機狀態下，<strong>長按「+」和「-」鍵</strong>，進入參數設置介面，最初顯示 <span class="pill">P01</span></li>
+        <li>短按「i」鍵，逐一切換到下一參數，直到進入 <span class="pill">P08</span></li>
+        <li>按「+」，將最大限速由「025」設置成想要的時速（例如「055」），範圍 0–100 km/h，<strong>100 表示不限速</strong></li>
+        <li>繼續短按「i」鍵，直至進入 <span class="pill">P10</span></li>
+        <li>按「+」，將原本的「000」設置成「002」</li>
+      </ol>
+      <div class="note">實際案例：P08 設為最大限速 55，P10 設為 002，設定完成後重新測試即恢復油門反應。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="badge">03</span> 常用參數對照表</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>參數</th><th>功能說明</th><th>數值 / 設定方式</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">P08</td><td>最大限速設定</td><td>0–100（km/h），100 = 不限速；範例設為 055</td></tr>
+          <tr><td class="code">P09</td><td>零啟動 / 非零啟動設置</td><td>0 = 零啟動；1 = 非零啟動</td></tr>
+          <tr><td class="code">P10</td><td>啟動相關設定（詳細功能待補）</td><td>範例設為 002</td></tr>
+        </tbody>
+      </table>
+      <div class="warn">注意：將 P09 改為「1（非零啟動）」或調整 P10 後，曾發生轉把（油門）失去反應、僅剩助力功能的情況，需搭配下方「油門校正」步驟排除。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="badge">04</span> 快速解除／恢復限速流程</div>
+    <div class="card">
+      <h3>操作步驟</h3>
+      <ol class="steps">
+        <li>持續按壓<strong>左剎車把</strong>不放</li>
+        <li>打開電源開機，剎車把<strong>持續不放</strong></li>
+        <li>數到 <strong>15 秒以上</strong></li>
+      </ol>
+      <div class="note">完成後即<strong>解除限速</strong>，可達 50 km/h 以上。<br>再重複同樣步驟操作一次，即<strong>恢復限速開啟</strong>狀態（來回切換）。</div>
+      <div class="warn">此為快速切換限速開關的隱藏操作，與前面 P08／P10 參數設定為不同的兩種方式，可依現場需求擇一使用。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>整理自客服對話紀錄，實際參數依車輛型號與韌體版本可能略有差異</footer>
+
+</body>
+</html>
