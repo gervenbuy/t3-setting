@@ -1,0 +1,4 @@
+build/
+video_log.txt
+concat.txt
+__pycache__/
