@@ -254,26 +254,44 @@
         <li>短按「i」鍵，逐一切換到下一參數，直到進入 <span class="pill">P08</span></li>
         <li>按「+」，將最大限速由「025」設置成想要的時速（例如「055」），範圍 0–100 km/h，<strong>100 表示不限速</strong></li>
         <li>繼續短按「i」鍵，直至進入 <span class="pill">P10</span></li>
-        <li>按「+」，將原本的「000」設置成「002」</li>
+        <li>按「+」，將原本的「000」設置成「002」（驅動方式：助力與轉把同時共存）</li>
       </ol>
       <div class="note">實際案例：P08 設為最大限速 55，P10 設為 002，設定完成後重新測試即恢復油門反應。</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title"><span class="badge">04</span> 常用參數對照表</div>
+    <div class="section-title"><span class="badge">04</span> 儀表參數設定說明（P02–P20）</div>
     <div class="card">
+      <p style="margin-bottom:10px;">進入方式：開機狀態下<strong>長按「+」和「-」鍵</strong>進入參數設置介面，短按「i」鍵切換下一參數，按「+」/「-」調整數值。</p>
       <table>
         <thead>
           <tr><th>參數</th><th>功能說明</th><th>數值 / 設定方式</th></tr>
         </thead>
         <tbody>
-          <tr><td class="code">P08</td><td>最大限速設定</td><td>0–100（km/h），100 = 不限速；範例設為 055</td></tr>
+          <tr><td class="code">P02</td><td>里程單位</td><td>0 = KM（公里）；1 = MILE（英里）</td></tr>
+          <tr><td class="code">P03</td><td>電壓等級</td><td>24V、36V、48V、60V</td></tr>
+          <tr><td class="code">P04</td><td>休眠時間</td><td>0 = 不休眠；1–60 = 休眠時間（單位：分鐘）</td></tr>
+          <tr><td class="code">P05</td><td>助力檔位</td><td>0 = 3 檔模式；1 = 5 檔模式</td></tr>
+          <tr><td class="code">P06</td><td>輪徑（與儀表顯示速度相關，需輸入正確）</td><td>單位 inch；5.0–50，精度 0.1 inch</td></tr>
+          <tr><td class="code">P07</td><td>測速磁鋼數（與儀表顯示速度相關，需輸入正確）</td><td>範圍 1–100；<strong>T1 車型：50</strong><br>普通輪轂電機：直接輸入磁鋼數<br>高速電機：輸入值 = 磁鋼數 × 減速比（例：20 × 4.3 = 86）</td></tr>
+          <tr><td class="code">P08</td><td>最大限速（助力、轉把均限速）</td><td>0–100（km/h），100 = 不限速；驅動速度維持在設定值，誤差 ±1 km/h</td></tr>
           <tr><td class="code">P09</td><td>零啟動 / 非零啟動設置</td><td>0 = 零啟動；1 = 非零啟動</td></tr>
-          <tr><td class="code">P10</td><td>啟動相關設定（詳細功能待補）</td><td>範例設為 002</td></tr>
+          <tr><td class="code">P10</td><td>驅動方式設定</td><td>0 = 助力驅動（依助力檔位輸出，轉把無效）<br>1 = 電驅動（轉把驅動，助力檔位無效）<br>2 = 助力驅動與電驅動同時共存</td></tr>
+          <tr><td class="code">P11</td><td>助力靈敏度</td><td>範圍 1–24</td></tr>
+          <tr><td class="code">P12</td><td>助力啟動強度</td><td>範圍 1–5</td></tr>
+          <tr><td class="code">P13</td><td>助力磁鋼盤類型</td><td>5、8、12 粒磁鋼三種類型</td></tr>
+          <tr><td class="code">P14</td><td>控制器限流值</td><td>預設 12A；範圍 1–20A</td></tr>
+          <tr><td class="code">P15</td><td>控制器欠壓值</td><td>—</td></tr>
+          <tr><td class="code">P16</td><td>ODO 總里程清零</td><td>長按「上鍵」5 秒，ODO 清零</td></tr>
+          <tr><td class="code">P17</td><td>巡航功能</td><td>0 = 不啟用巡航；1 = 啟用巡航（自動巡航可選）</td></tr>
+          <tr><td class="code">P18</td><td>顯示速度比例調節</td><td>範圍 50%–150%</td></tr>
+          <tr><td class="code">P19</td><td>0 檔啟用</td><td>0 = 有 0 檔；1 = 無 0 檔</td></tr>
+          <tr><td class="code">P20</td><td>通訊協議</td><td>0 = 2 號協議（不可調）</td></tr>
         </tbody>
       </table>
-      <div class="warn">注意：將 P09 改為「1（非零啟動）」或調整 P10 後，曾發生轉把（油門）失去反應、僅剩助力功能的情況，需搭配下方「油門校正」步驟排除。</div>
+      <div class="note">P08 數值以「公里」為基準：P02 改為英里後，顯示介面的速度值會自動轉換為英里，但 P08 設定的限速值<strong>不會轉換</strong>，因此會與實際顯示的英里限速不一致。</div>
+      <div class="warn">注意：將 P09 改為「1（非零啟動）」或調整 P10 後，曾發生轉把（油門）失去反應、僅剩助力功能的情況（P10 = 0 時轉把本身即無效），需將 P10 設為 2 才能同時使用轉把與助力。</div>
     </div>
   </div>
 
@@ -288,6 +306,25 @@
       </ol>
       <div class="note">完成後即<strong>解除限速</strong>，可達 50 km/h 以上。<br>再重複同樣步驟操作一次，即<strong>恢復限速開啟</strong>狀態（來回切換）。</div>
       <div class="warn">此為快速切換限速開關的隱藏操作，與前面 P08／P10 參數設定為不同的兩種方式，可依現場需求擇一使用。</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="badge">06</span> 儀表故障代碼對照</div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr><th>代碼</th><th>代表意義</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="code">E06</td><td>電池欠壓</td></tr>
+          <tr><td class="code">E07</td><td>電機故障</td></tr>
+          <tr><td class="code">E08</td><td>轉把故障</td></tr>
+          <tr><td class="code">E09</td><td>控制器故障</td></tr>
+          <tr><td class="code">E10</td><td>通訊接收故障</td></tr>
+          <tr><td class="code">E11</td><td>通訊發送故障</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
